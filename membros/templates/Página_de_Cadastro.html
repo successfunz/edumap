@@ -8,10 +8,10 @@
     <style>
         :root {
             --primary-blue: #4a86e8;
-            --input-bg: #f8faff;      /* mais branco que o #f0f0f0 anterior */
+            --input-bg: #f8faff;
             --input-hover: #eef3fb;
             --border-radius: 50px;
-            --bg-blue: #dbe7ff;       /* azul um pouco mais saturado p/ contraste */
+            --bg-blue: #dbe7ff;
             --error: #e74c3c;
             --success: #2ecc71;
             --warning: #f39c12;
@@ -84,7 +84,6 @@
             width: 100%;
             max-width: 520px;
             margin-top: 60px;
-            /* Agora é um card branco de verdade */
             background: #ffffff;
             padding: 42px 40px 46px;
             border-radius: 28px;
@@ -126,7 +125,7 @@
             transition: color 0.3s ease;
         }
 
-        /* ====== INPUTS (mais brancos) ====== */
+        /* ====== INPUTS ====== */
         input {
             background-color: var(--input-bg);
             border: 2px solid transparent;
@@ -147,7 +146,6 @@
             transform: translateY(-2px);
         }
 
-        /* Estado de erro */
         .input-group.error input {
             border-color: var(--error);
             background-color: #ffffff;
@@ -158,7 +156,6 @@
             box-shadow: 0 5px 20px rgba(231, 76, 60, 0.25);
         }
 
-        /* Estado de sucesso */
         .input-group.success input {
             border-color: var(--success);
             background-color: #ffffff;
@@ -196,7 +193,7 @@
         .toggle-password:active { transform: scale(0.9); }
         .eye-icon { width: 100%; height: 100%; }
 
-        /* ====== BARRA DE FORÇA DA SENHA ====== */
+        /* ====== BARRA DE FORÇA ====== */
         .password-strength {
             display: flex;
             gap: 6px;
@@ -206,7 +203,7 @@
         .strength-bar {
             flex: 1;
             height: 100%;
-            background-color: #eaeff8;   /* trilha mais clara */
+            background-color: #eaeff8;
             border-radius: 4px;
             transition: background-color 0.3s ease;
         }
@@ -276,7 +273,6 @@
         }
         .btn-primary:hover::before { left: 100%; }
 
-        /* Spinner de loading */
         .spinner {
             width: 18px;
             height: 18px;
@@ -300,7 +296,7 @@
         .divider::before { margin-right: 10px; }
         .divider::after  { margin-left: 10px; }
 
-        /* ====== BOTÃO GOOGLE (agora branco) ====== */
+        /* ====== BOTÃO GOOGLE ====== */
         .btn-google {
             background-color: #ffffff;
             color: #333;
@@ -346,14 +342,14 @@
         }
         .footer-text a:hover::after { width: 100%; }
 
-        /* ====== TOAST DE SUCESSO ====== */
+        /* ====== TOAST ====== */
         .toast-success {
             position: fixed;
             top: 30px;
             left: 50%;
             transform: translateX(-50%);
             background-color: var(--success);
-            color: #ffffff;
+            color: #fff;
             padding: 15px 30px;
             border-radius: 50px;
             font-weight: 600;
@@ -366,7 +362,6 @@
         }
         .toast-success.show { display: flex; }
 
-        /* Anima os campos com erro */
         .input-group.shake { animation: shake 0.4s ease-in-out; }
 
         /* ====== RESPONSIVO ====== */
@@ -386,13 +381,11 @@
 </head>
 <body>
 
-    <!-- Toast de Sucesso -->
     <div class="toast-success" id="toast">
         <span>✅</span>
         <span id="toast-message">Conta criada com sucesso!</span>
     </div>
 
-    <!-- Logo -->
     <div class="logo-container">
         <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50 10 L80 90 H20 L50 10Z" fill="#2c3e50" opacity="0.1"/>
@@ -407,7 +400,6 @@
         </div>
     </div>
 
-    <!-- Formulário -->
     <div class="form-wrapper">
         <div class="form-header">
             <h2>Crie sua conta</h2>
@@ -434,7 +426,6 @@
                 <span class="error-msg">Insira um e-mail válido</span>
             </div>
 
-            <!-- Senha -->
             <div class="input-group" id="group-senha">
                 <label for="senha">Senha</label>
                 <div class="password-container">
@@ -446,7 +437,6 @@
                         </svg>
                     </button>
                 </div>
-                <!-- Barra de força -->
                 <div class="password-strength">
                     <div class="strength-bar" data-bar="1"></div>
                     <div class="strength-bar" data-bar="2"></div>
@@ -457,7 +447,6 @@
                 <span class="error-msg">A senha deve ter 8+ caracteres, com maiúscula, minúscula e número</span>
             </div>
 
-            <!-- Confirmar Senha -->
             <div class="input-group" id="group-confirmar">
                 <label for="confirmar-senha">Confirmar senha</label>
                 <div class="password-container">
@@ -501,9 +490,6 @@
     </div>
 
     <script>
-        /* ==================================================
-           TOGGLE DE SENHA (Mostrar / Ocultar)
-        ================================================== */
         function togglePassword(inputId, button) {
             const input = document.getElementById(inputId);
             const svg = button.querySelector('.eye-icon');
@@ -524,9 +510,6 @@
             }
         }
 
-        /* ==================================================
-           ELEMENTOS
-        ================================================== */
         const form = document.getElementById('signupForm');
         const nome = document.getElementById('nome');
         const sobrenome = document.getElementById('sobrenome');
@@ -540,9 +523,6 @@
         const strengthBars = document.querySelectorAll('.strength-bar');
         const strengthText = document.getElementById('strengthText');
 
-        /* ==================================================
-           FUNÇÕES DE VALIDAÇÃO
-        ================================================== */
         const isEmailValido = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
         const isSenhaForte = (s) =>
@@ -551,16 +531,12 @@
             /[a-z]/.test(s) &&
             /[0-9]/.test(s);
 
-        function marcarErro(groupId, mostrar = true) {
+        function marcarErro(groupId) {
             const group = document.getElementById(groupId);
-            if (mostrar) {
-                group.classList.add('error');
-                group.classList.remove('success', 'shake');
-                void group.offsetWidth;
-                group.classList.add('shake');
-            } else {
-                group.classList.remove('error', 'shake');
-            }
+            group.classList.add('error');
+            group.classList.remove('success', 'shake');
+            void group.offsetWidth;
+            group.classList.add('shake');
         }
 
         function marcarSucesso(groupId) {
@@ -574,9 +550,6 @@
             group.classList.remove('error', 'success', 'shake');
         }
 
-        /* ==================================================
-           VALIDAÇÕES INDIVIDUAIS (em tempo real)
-        ================================================== */
         nome.addEventListener('input', () => {
             if (nome.value.trim().length >= 2) marcarSucesso('group-nome');
             else limparEstado('group-nome');
@@ -620,9 +593,6 @@
             }
         });
 
-        /* ==================================================
-           FORÇA DA SENHA
-        ================================================== */
         function calcularForca(s) {
             let pontos = 0;
             if (s.length >= 8) pontos++;
@@ -653,9 +623,6 @@
             }
         }
 
-        /* ==================================================
-           API SIMULADA
-        ================================================== */
         async function enviarDados(dados) {
             return new Promise((resolve) => {
                 setTimeout(() => {
@@ -668,9 +635,6 @@
             });
         }
 
-        /* ==================================================
-           VALIDAÇÃO FINAL + ENVIO
-        ================================================== */
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
@@ -748,18 +712,12 @@
             }
         });
 
-        /* ==================================================
-           TOAST
-        ================================================== */
         function mostrarToast(msg) {
             toastMessage.textContent = msg;
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 4000);
         }
 
-        /* ==================================================
-           LOGIN COM GOOGLE (simulado)
-        ================================================== */
         function loginGoogle() {
             mostrarToast('🔗 Redirecionando para o Google...');
         }
