@@ -8,12 +8,14 @@
     <style>
         :root {
             --primary-blue: #4a86e8;
-            --input-bg: #f0f0f0;
+            --input-bg: #f8faff;      /* mais branco que o #f0f0f0 anterior */
+            --input-hover: #eef3fb;
             --border-radius: 50px;
-            --bg-blue: #e4edff;
+            --bg-blue: #dbe7ff;       /* azul um pouco mais saturado p/ contraste */
             --error: #e74c3c;
             --success: #2ecc71;
             --warning: #f39c12;
+            --soft-border: #e6ebf5;
         }
 
         * {
@@ -77,11 +79,19 @@
         }
         .logo-text span { font-size: 11px; color: #555; }
 
-        /* ====== FORMULÁRIO ====== */
+        /* ====== WRAPPER BRANCO ====== */
         .form-wrapper {
             width: 100%;
-            max-width: 480px;
+            max-width: 520px;
             margin-top: 60px;
+            /* Agora é um card branco de verdade */
+            background: #ffffff;
+            padding: 42px 40px 46px;
+            border-radius: 28px;
+            box-shadow:
+                0 24px 60px rgba(74, 134, 232, 0.18),
+                0 6px 20px rgba(44, 62, 80, 0.08),
+                0 0 0 1px rgba(255, 255, 255, 0.6) inset;
             animation: fadeInUp 0.9s ease-out;
         }
 
@@ -116,7 +126,7 @@
             transition: color 0.3s ease;
         }
 
-        /* ====== INPUTS ====== */
+        /* ====== INPUTS (mais brancos) ====== */
         input {
             background-color: var(--input-bg);
             border: 2px solid transparent;
@@ -128,10 +138,10 @@
             transition: all 0.3s ease;
             width: 100%;
         }
-        input::placeholder { color: #aaa; }
-        input:hover { background-color: #e8e8e8; transform: translateY(-2px); }
+        input::placeholder { color: #a8b2c4; }
+        input:hover { background-color: var(--input-hover); transform: translateY(-2px); }
         input:focus {
-            background-color: #fff;
+            background-color: #ffffff;
             border-color: var(--primary-blue);
             box-shadow: 0 5px 20px rgba(74, 134, 232, 0.25);
             transform: translateY(-2px);
@@ -140,7 +150,7 @@
         /* Estado de erro */
         .input-group.error input {
             border-color: var(--error);
-            background-color: #fff;
+            background-color: #ffffff;
         }
         .input-group.error label { color: var(--error); }
         .input-group.error .error-msg { display: block; }
@@ -151,7 +161,7 @@
         /* Estado de sucesso */
         .input-group.success input {
             border-color: var(--success);
-            background-color: #fff;
+            background-color: #ffffff;
         }
 
         .error-msg {
@@ -175,7 +185,7 @@
             position: absolute;
             right: 20px;
             cursor: pointer;
-            color: #aaa;
+            color: #a8b2c4;
             width: 22px; height: 22px;
             transition: color 0.3s ease, transform 0.2s ease;
             background: none; border: none;
@@ -196,7 +206,7 @@
         .strength-bar {
             flex: 1;
             height: 100%;
-            background-color: #e0e0e0;
+            background-color: #eaeff8;   /* trilha mais clara */
             border-radius: 4px;
             transition: background-color 0.3s ease;
         }
@@ -282,19 +292,19 @@
         /* ====== DIVISOR ====== */
         .divider {
             display: flex; align-items: center; text-align: center;
-            margin: 20px 0; color: #666; font-size: 14px;
+            margin: 20px 0; color: #8a95a8; font-size: 14px;
         }
         .divider::before, .divider::after {
-            content: ''; flex: 1; border-bottom: 1px solid #ddd;
+            content: ''; flex: 1; border-bottom: 1px solid var(--soft-border);
         }
         .divider::before { margin-right: 10px; }
         .divider::after  { margin-left: 10px; }
 
-        /* ====== BOTÃO GOOGLE ====== */
+        /* ====== BOTÃO GOOGLE (agora branco) ====== */
         .btn-google {
-            background-color: #f0f0f0;
+            background-color: #ffffff;
             color: #333;
-            border: none;
+            border: 1.5px solid var(--soft-border);
             padding: 15px;
             border-radius: var(--border-radius);
             font-size: 16px;
@@ -306,11 +316,13 @@
             gap: 10px;
             width: 100%;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(44, 62, 80, 0.04);
         }
         .btn-google:hover {
-            background-color: #e0e0e0;
+            background-color: #fbfcff;
+            border-color: #cfdcee;
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(74, 134, 232, 0.12);
         }
         .btn-google:active { transform: translateY(-1px); }
         .google-icon { width: 20px; height: 20px; transition: transform 0.4s ease; }
@@ -341,7 +353,7 @@
             left: 50%;
             transform: translateX(-50%);
             background-color: var(--success);
-            color: #fff;
+            color: #ffffff;
             padding: 15px 30px;
             border-radius: 50px;
             font-weight: 600;
@@ -365,6 +377,10 @@
             .logo-text h1 { font-size: 22px; }
             .logo-text span { font-size: 9px; }
             .row { flex-direction: column; gap: 15px; }
+            .form-wrapper {
+                padding: 30px 22px 34px;
+                border-radius: 22px;
+            }
         }
     </style>
 </head>
@@ -576,7 +592,6 @@
             else limparEstado('group-email');
         });
 
-        // Força da senha em tempo real
         senha.addEventListener('input', () => {
             const val = senha.value;
             const pontos = calcularForca(val);
@@ -598,7 +613,6 @@
             }
         }
 
-        // Checkbox termos — feedback visual imediato
         termos.addEventListener('change', () => {
             const gt = document.getElementById('group-termos');
             if (termos.checked) {
@@ -626,7 +640,7 @@
                 if (i < pontos) {
                     bar.style.backgroundColor = cores[pontos - 1];
                 } else {
-                    bar.style.backgroundColor = '#e0e0e0';
+                    bar.style.backgroundColor = '#eaeff8';
                 }
             });
 
@@ -640,22 +654,11 @@
         }
 
         /* ==================================================
-           API SIMULADA (substitua por fetch real)
+           API SIMULADA
         ================================================== */
         async function enviarDados(dados) {
-            // Simula chamada de API (ex: POST /api/signup)
-            // Em produção, use fetch:
-            // const res = await fetch('/api/signup', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(dados)
-            // });
-            // if (!res.ok) throw new Error('Falha no cadastro');
-            // return res.json();
-
             return new Promise((resolve) => {
                 setTimeout(() => {
-                    // Simula sucesso (90% das vezes) e erro (10%)
                     if (Math.random() > 0.1) {
                         resolve({ success: true, message: 'Conta criada com sucesso!' });
                     } else {
@@ -673,37 +676,22 @@
 
             let valido = true;
 
-            // Nome
-            if (nome.value.trim().length < 2) {
-                marcarErro('group-nome');
-                valido = false;
-            } else marcarSucesso('group-nome');
+            if (nome.value.trim().length < 2) { marcarErro('group-nome'); valido = false; }
+            else marcarSucesso('group-nome');
 
-            // Sobrenome
-            if (sobrenome.value.trim().length < 2) {
-                marcarErro('group-sobrenome');
-                valido = false;
-            } else marcarSucesso('group-sobrenome');
+            if (sobrenome.value.trim().length < 2) { marcarErro('group-sobrenome'); valido = false; }
+            else marcarSucesso('group-sobrenome');
 
-            // Email
-            if (!isEmailValido(email.value.trim())) {
-                marcarErro('group-email');
-                valido = false;
-            } else marcarSucesso('group-email');
+            if (!isEmailValido(email.value.trim())) { marcarErro('group-email'); valido = false; }
+            else marcarSucesso('group-email');
 
-            // Senha
-            if (!isSenhaForte(senha.value)) {
-                marcarErro('group-senha');
-                valido = false;
-            } else marcarSucesso('group-senha');
+            if (!isSenhaForte(senha.value)) { marcarErro('group-senha'); valido = false; }
+            else marcarSucesso('group-senha');
 
-            // Confirmar Senha
             if (confirmar.value !== senha.value || confirmar.value === '') {
-                marcarErro('group-confirmar');
-                valido = false;
+                marcarErro('group-confirmar'); valido = false;
             } else marcarSucesso('group-confirmar');
 
-            // Termos
             if (!termos.checked) {
                 const gt = document.getElementById('group-termos');
                 gt.classList.add('error');
@@ -722,7 +710,6 @@
                 return;
             }
 
-            // ====== ENVIO ======
             btnSubmit.classList.add('loading');
             btnSubmit.disabled = true;
 
@@ -739,7 +726,6 @@
                 if (resposta.success) {
                     mostrarToast(`Bem-vindo(a), ${dados.nome}! Conta criada com sucesso 🎉`);
 
-                    // Reset visual
                     setTimeout(() => {
                         form.reset();
                         document.querySelectorAll('.input-group').forEach(g => {
@@ -749,7 +735,6 @@
                         atualizarBarraForca(0);
                     }, 2500);
                 } else {
-                    // Erro de API (ex: e-mail duplicado)
                     marcarErro('group-email');
                     document.querySelector('#group-email .error-msg').textContent = resposta.message;
                     mostrarToast(`❌ ${resposta.message}`);
@@ -777,10 +762,8 @@
         ================================================== */
         function loginGoogle() {
             mostrarToast('🔗 Redirecionando para o Google...');
-            // Em produção: window.location.href = '/auth/google';
         }
 
-        // Ajuste no texto do erro de email dinamicamente
         const emailErrorSpan = document.querySelector('#group-email .error-msg');
         email.addEventListener('input', () => {
             emailErrorSpan.textContent = 'Insira um e-mail válido';
