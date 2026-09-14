@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Central de Ajuda - EduMAP</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho-ajuda">
+
+        <!-- MENU -->
+        <button class="botao-menu">
+            ☰
+        </button>
+
+        <!-- LOGO -->
+        <img src="{% static 'imgs/logo.png' %}" 
+             alt="EduMAP" 
+             class="logo-ajuda">
+
+        <!-- USUÁRIO -->
+        <div class="usuario-ajuda">
+            <span class="icone-usuario">🌎</span>
+            <span>Olá, Enzo</span>
+            <span>⌄</span>
+        </div>
+
+    </header>
+
+
+    <!-- TÍTULO -->
+    <section class="titulo-ajuda">
+
+        <h1>Central de Ajuda</h1>
+
+        <p>Fale com a gente</p>
+
+    </section>
+
+
+    <!-- OPÇÕES DE CONTATO -->
+    <main class="conteudo-ajuda">
+
+        <div class="cards-ajuda">
+
+
+            <!-- E-MAIL -->
+            <div class="card-ajuda">
+
+                <div class="icone-card">
+                    ✉
+                </div>
+
+                <h2>E-mail</h2>
+
+                <p>
+                    Envie sua dúvida por e-mail
+                    e nossa equipe responderá
+                    em até 24 horas.
+                </p>
+
+                <a href="mailto:suporte@edumap.com">
+                    Enviar e-mail ↗
+                </a>
+
+            </div>
+
+
+            <!-- CHAT -->
+            <div class="card-ajuda">
+
+                <div class="icone-card">
+                    💬
+                </div>
+
+                <h2>Chat ao vivo</h2>
+
+                <p>
+                    Converse em tempo real
+                    com um atendente disponível
+                    de segunda a sexta,
+                    das 9h às 18h.
+                </p>
+
+                <a href="#">
+                    Iniciar chat ↗
+                </a>
+
+            </div>
+
+
+            <!-- TELEFONE -->
+            <div class="card-ajuda">
+
+                <div class="icone-card">
+                    ♧
+                </div>
+
+                <h2>Telefone</h2>
+
+                <p>
+                    Prefere falar? Ligue para
+                    nosso número de suporte
+                    em dias úteis das 9h às 17h.
+                </p>
+
+                <a href="tel:+5500000000000">
+                    Ver número ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- FINAL DA PÁGINA -->
+        <section class="contato-final">
+
+            <h2>
+                Não encontrou o que procurava?
+            </h2>
+
+            <p>
+                Nossa equipe está pronta para ajudar
+                com qualquer dúvida.
+            </p>
+
+            <button>
+                Entrar em contato
+            </button>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
