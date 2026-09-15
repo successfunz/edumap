@@ -55,7 +55,11 @@ ROOT_URLCONF = 'edumap.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': [BASE_DIR / 'templates'],
+=======
+        'DIRS': [],
+>>>>>>> bcd0b793903ead3db7abd96c652dc05a2698ce26
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +121,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+<<<<<<< HEAD
 STATICFILES_DIRS = [
     BASE_DIR / 'static',   # ← aponta para a pasta "statics" que está na raiz do projeto
 ]
+=======
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+>>>>>>> bcd0b793903ead3db7abd96c652dc05a2698ce26

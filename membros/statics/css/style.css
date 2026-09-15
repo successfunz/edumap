@@ -1,0 +1,266 @@
+/* =====================================================
+   TELA INICIAL - EDUMAP
+===================================================== */
+
+
+/* CONFIGURAÇÃO DA PÁGINA */
+
+.pagina-inicial {
+    margin: 0;
+
+    min-height: 100vh;
+
+    background-color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #000000;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   TOPO
+===================================================== */
+
+.topo-inicial {
+    width: 100%;
+
+    height: 80px;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    padding-right: 38px;
+
+    box-sizing: border-box;
+}
+
+
+/* ÁREA DOS BOTÕES */
+
+.botoes-inicial {
+    display: flex;
+
+    align-items: center;
+
+    gap: 34px;
+
+    background-color: #ffffff;
+
+    padding: 18px 28px;
+
+    border-radius: 8px;
+
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+}
+
+
+/* BOTÕES */
+
+.botao-topo {
+    color: #111111;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    transition: 0.2s;
+}
+
+
+.botao-topo:hover {
+    color: #2f80ed;
+}
+
+
+/* =====================================================
+   CONTEÚDO CENTRAL
+===================================================== */
+
+.conteudo-inicial {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    padding-bottom: 30px;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-inicial {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-top: -65px;
+}
+
+
+.logo-inicial img {
+
+    width: 430px;
+
+    max-width: 75vw;
+
+    height: auto;
+
+    display: block;
+}
+
+
+/* =====================================================
+   CARREGAMENTO
+===================================================== */
+
+.carregamento {
+
+    margin-top: 55px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* CÍRCULO */
+
+.circulo-carregamento {
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 50%;
+
+    border: 6px solid #dce8fb;
+
+    border-top-color: #2f80ed;
+
+    border-left-color: #2f80ed;
+
+    animation: carregando 1.2s linear infinite;
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes carregando {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+.rodape-inicial {
+
+    position: absolute;
+
+    bottom: 22px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: #000000;
+
+    font-size: 11px;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .topo-inicial {
+
+        height: 70px;
+
+        padding-right: 15px;
+    }
+
+
+    .botoes-inicial {
+
+        gap: 18px;
+
+        padding: 13px 18px;
+    }
+
+
+    .botao-topo {
+
+        font-size: 12px;
+    }
+
+
+    .logo-inicial img {
+
+        width: 320px;
+    }
+
+
+    .circulo-carregamento {
+
+        width: 42px;
+
+        height: 42px;
+
+        border-width: 5px;
+    }
+
+
+    .rodape-inicial {
+
+        font-size: 9px;
+
+        bottom: 15px;
+    }
+
+}
