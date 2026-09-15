@@ -1,0 +1,342 @@
+/* ============================================
+   VARIÁVEIS GLOBAIS
+============================================ */
+:root {
+    --primary-blue: #4a7fe8;
+    --input-bg: #f0f0f0;
+    --border-radius: 50px;
+    --bg-blue: #e2ebff;
+    --page-bg: #eef1f6;
+}
+
+/* ============================================
+   RESET E BASE
+============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ============================================
+   FUNDO DA PÁGINA
+============================================ */
+body {
+    min-height: 100vh;
+    background-color: var(--page-bg);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título da tela (opcional) */
+.page-title {
+    color: #888;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+/* ============================================
+   CONTAINER PRINCIPAL
+============================================ */
+.container {
+    flex: 1;
+    display: flex;
+    background-color: #fff;
+    border: 2px solid var(--primary-blue);
+    overflow: hidden;
+    min-height: calc(100vh - 80px);
+}
+
+/* ============================================
+   LADO ESQUERDO (azul claro)
+============================================ */
+.left-panel {
+    width: 42%;
+    background-color: var(--bg-blue);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid var(--primary-blue);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo-img {
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+}
+
+.illustration-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.illustration-img {
+    max-width: 100%;
+    max-height: 480px;
+    object-fit: contain;
+}
+
+/* ============================================
+   LADO DIREITO (formulário)
+============================================ */
+.right-panel {
+    width: 58%;
+    background-color: #fff;
+    padding: 50px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h2 {
+    font-size: 28px;
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.form-header p {
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* ============================================
+   FORMULÁRIO
+============================================ */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.row {
+    display: flex;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #000;
+    margin-left: 15px;
+}
+
+input {
+    background-color: var(--input-bg);
+    border: none;
+    padding: 14px 20px;
+    border-radius: var(--border-radius);
+    font-size: 15px;
+    color: #333;
+    outline: none;
+    transition: 0.2s;
+    width: 100%;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+input:focus {
+    box-shadow: 0 0 0 2px rgba(74, 127, 232, 0.3);
+}
+
+/* ============================================
+   CAMPO DE SENHA COM OLHO
+============================================ */
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    padding-right: 50px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 18px;
+    cursor: pointer;
+    color: #aaa;
+    width: 18px;
+    height: 18px;
+    transition: color 0.2s ease;
+    pointer-events: auto;   /* garante que o clique funcione */
+    z-index: 2;             /* fica acima do input */
+}
+
+.eye-icon:hover {
+    color: var(--primary-blue);
+}
+
+/* ============================================
+   CHECKBOX
+============================================ */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+    font-size: 13px;
+    color: #555;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary-blue);
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.checkbox-group a {
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ============================================
+   BOTÃO PRINCIPAL
+============================================ */
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: var(--border-radius);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #3b6dc0;
+}
+
+/* ============================================
+   DIVISOR "ou continue com"
+============================================ */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 15px 0;
+    color: #666;
+    font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.divider::before { margin-right: 10px; }
+.divider::after  { margin-left: 10px; }
+
+/* ============================================
+   BOTÃO GOOGLE
+============================================ */
+.btn-google {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    padding: 14px;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-google:hover {
+    background-color: #e0e0e0;
+}
+
+.google-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* ============================================
+   RODAPÉ
+============================================ */
+.footer-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 13px;
+    color: #666;
+}
+
+.footer-text a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ============================================
+   RESPONSIVO
+============================================ */
+@media (max-width: 900px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid var(--primary-blue);
+        padding: 25px;
+    }
+
+    .illustration-img {
+        max-height: 280px;
+    }
+
+    .right-panel {
+        width: 100%;
+        padding: 30px 25px;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
